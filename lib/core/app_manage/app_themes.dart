@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'app_color.dart';
 
 class AppThemes {
@@ -7,7 +6,6 @@ class AppThemes {
     primaryColor: AppPalette.blue,
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppPalette.white,
-    fontFamily: GoogleFonts.poppins().fontFamily,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppPalette.white,
       selectedItemColor: AppPalette.black,
@@ -17,10 +15,21 @@ class AppThemes {
       backgroundColor: AppPalette.blue,
       iconTheme: IconThemeData(color: Colors.black),
     ),
-    textTheme: TextTheme(
-      bodyLarge: GoogleFonts.poppins(color: AppPalette.black),
-      bodyMedium: GoogleFonts.poppins(color: AppPalette.black),
-      bodySmall: GoogleFonts.poppins(color: AppPalette.black),
-    )
+  );
+
+  // Dark Theme
+  static final darkTheme = ThemeData(
+    primaryColor: AppPalette.blue,
+    brightness: Brightness.dark,
+    scaffoldBackgroundColor: const Color.fromARGB(255, 10, 10, 10),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: AppPalette.black,
+      selectedItemColor: AppPalette.white,
+      unselectedItemColor: AppPalette.grey,
+    ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppPalette.blue,
+      iconTheme: IconThemeData(color: Colors.white),
+    ),
   );
 }

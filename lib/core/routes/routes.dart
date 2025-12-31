@@ -1,12 +1,14 @@
+import 'package:agent_ai/core/screen_size/media_quary.dart';
+import 'package:agent_ai/src/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import '../screen_size/screen_size_helper.dart';
 
 class Routes {
-  static const String splash = '/';
+  static const String home = '/';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case splash:
+      case home:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
     
       default:
         return MaterialPageRoute(
@@ -32,7 +34,7 @@ class Routes {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                           ScreenSize.hight20(context),
+                           Constant.hight(context: context, hight: .2),
                             Text(
                               'The page you were looking for could not be found. '
                               'It might have been removed, renamed, or does not exist.',
