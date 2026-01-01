@@ -54,7 +54,8 @@ class HomeScreen extends ConsumerWidget {
                       );
                     },
                     onChanged: (val) {
-                      ref.read(textRecognitionProvider.notifier).state = val;
+                      ref.read(textRecognitionProvider.notifier)
+                          .setTargetText(val);
                     },
                     decoration: InputDecoration(
                       labelText: 'Enter recognition Text.',

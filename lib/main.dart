@@ -1,5 +1,6 @@
 import 'package:agent_ai/core/app_manage/app_themes.dart';
 import 'package:agent_ai/core/local_storages/shared_preferences.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/services.dart';
@@ -7,8 +8,11 @@ import 'package:flutter/services.dart';
 import 'core/routes/routes.dart';
 import 'src/riverpod/toggle_riverpod.dart';
 
+List<CameraDescription> cameras = [];
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
