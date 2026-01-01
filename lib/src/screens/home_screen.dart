@@ -1,11 +1,14 @@
 import 'package:agent_ai/core/app_manage/app_color.dart';
+import 'package:agent_ai/core/app_manage/app_images.dart';
 import 'package:agent_ai/core/common/custom_appbar.dart';
 import 'package:agent_ai/core/screen_size/media_quary.dart';
 import 'package:agent_ai/src/riverpod/toggle_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/common/custom_toggle_button.dart';
+import 'package:agent_ai/core/common/custom_toggle_button.dart';
+import 'package:agent_ai/src/riverpod/text_recognition_provider.dart';
+import 'package:agent_ai/src/screens/text_recognition/text_recognition_screen.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -14,6 +17,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isDark = ref.watch(themeProvider);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(title: 'Text Recognition', isTitle: true),
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,
@@ -42,9 +46,15 @@ class HomeScreen extends ConsumerWidget {
                     cursorErrorColor: AppPalette.red,
                     onFieldSubmitted: (val) {
                       FocusScope.of(context).unfocus();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TextRecognitionScreen(),
+                        ),
+                      );
                     },
                     onChanged: (val) {
-
+                      ref.read(textRecognitionProvider.notifier).state = val;
                     },
                     decoration: InputDecoration(
                       labelText: 'Enter recognition Text.',
@@ -94,7 +104,14 @@ class HomeScreen extends ConsumerWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(20),
                           onTap: () {
-                            
+                            FocusScope.of(context).unfocus();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const TextRecognitionScreen(),
+                              ),
+                            );
                           },
                           child: Container(
                             margin: const EdgeInsets.all(4),
@@ -109,6 +126,22 @@ class HomeScreen extends ConsumerWidget {
                         ),
                       ),
                     ),
+                  ),
+                  Spacer(),
+                  Image.asset(
+                    AppImages.applogo,
+                    fit: .contain,
+                    height: 100,
+                    width: 100,
+                  ),
+                  Text(
+                    'Agent Al : IQ Assistant',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'An AI-based recognition system that utilizes online machine learning models to perform advanced search and information retrieval beyond offline ML capabilities. @2026',
+                    style: TextStyle(fontSize: 10),
+                    textAlign: .center,
                   ),
                 ],
               ),
