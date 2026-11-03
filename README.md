@@ -7,13 +7,12 @@
 </p>
 
 <p align="center">
-  ![Flutter](https://img.shields.io/badge/Flutter-Framework-02569B?logo=flutter)
-  ![Dart](https://img.shields.io/badge/Dart-Language-0175C2?logo=dart)
-  ![Riverpod](https://img.shields.io/badge/State%20Management-Riverpod-5C6BC0)
-  ![Platform](https://img.shields.io/badge/Platform-Mobile-success)
-  ![Status](https://img.shields.io/badge/Status-In%20Development-orange)
+  <img src="https://img.shields.io/badge/Flutter-Framework-02569B?logo=flutter&logoColor=white" />
+  <img src="https://img.shields.io/badge/Dart-Language-0175C2?logo=dart&logoColor=white" />
+  <img src="https://img.shields.io/badge/Riverpod-State%20Management-5C6BC0" />
+  <img src="https://img.shields.io/badge/Platform-Mobile-success" />
+  <img src="https://img.shields.io/badge/Status-In%20Development-orange" />
 </p>
-
 ---
 
 ## Overview
