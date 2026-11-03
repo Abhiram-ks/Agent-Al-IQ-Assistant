@@ -13,7 +13,6 @@
   <img src="https://img.shields.io/badge/Platform-Mobile-success" />
   <img src="https://img.shields.io/badge/Status-In%20Development-orange" />
 </p>
----
 
 ## Overview
 
